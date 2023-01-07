@@ -19,7 +19,7 @@ resource "azurerm_subnet" "test" {
   resource_group_name  = azurerm_resource_group.test.name
   address_prefixes     = ["10.0.0.0/24"]
 }
-#Creation de la carte réseau
+#Creation Network interface test
 resource "azurerm_network_interface" "test" {
   name                = "test"
   location            = azurerm_resource_group.test.location
@@ -72,7 +72,7 @@ resource "azurerm_subnet" "test2" {
   address_prefixes     = ["10.0.1.0/24"]
 }
 
-#Creation de la carte réseau test2
+#Creation Network interface test2
 resource "azurerm_network_interface" "test2" {
   name                = "test2"
   location            = azurerm_resource_group.test.location
@@ -117,13 +117,14 @@ resource "azurerm_virtual_machine" "test2" {
     environment = "staging"
   }
 }
+
 resource "azurerm_subnet" "test3" {
   name                 = "test3"
   virtual_network_name = azurerm_virtual_network.test.name
   resource_group_name  = azurerm_resource_group.test.name
   address_prefixes     = ["10.0.2.0/24"]
 }
-#Creation de la carte réseau
+#Creation Network interface test3
 resource "azurerm_network_interface" "test3" {
   name                = "test3"
   location            = azurerm_resource_group.test.location
